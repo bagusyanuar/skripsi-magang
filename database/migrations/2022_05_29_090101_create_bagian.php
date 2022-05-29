@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMember extends Migration
+class CreateBagian extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,10 @@ class CreateMember extends Migration
      */
     public function up()
     {
-        Schema::create('peserta', function (Blueprint $table) {
+        Schema::create('bagian', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('user_id')->unsigned();
             $table->string('nama');
-            $table->string('no_hp');
-            $table->text('alamat');
-            $table->string('sekolah');
             $table->timestamps();
-            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 
@@ -32,6 +27,6 @@ class CreateMember extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('peserta');
+        Schema::dropIfExists('bagian');
     }
 }

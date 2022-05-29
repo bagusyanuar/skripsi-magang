@@ -64,42 +64,17 @@
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="/admin"
+                                <a href="/karyawan"
                                    class="nav-link">
                                     <i class="fa fa-circle-o nav-icon" aria-hidden="true"></i>
-                                    <p>Admin</p>
+                                    <p>Karyawan</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="/member"
+                                <a href="/peserta"
                                    class="nav-link">
                                     <i class="fa fa-circle-o nav-icon" aria-hidden="true"></i>
-                                    <p>Member</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="nav-item has-treeview">
-                        <a href="#" class="nav-link">
-                            <i class="nav-icon fa fa-briefcase"></i>
-                            <p>
-                                Transaksi
-                                <i class="right fa fa-angle-down"></i>
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="/penerimaan"
-                                   class="nav-link">
-                                    <i class="fa fa-circle-o nav-icon" aria-hidden="true"></i>
-                                    <p>Penerimaan</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="/pengembalian"
-                                   class="nav-link">
-                                    <i class="fa fa-circle-o nav-icon" aria-hidden="true"></i>
-                                    <p>Pengembalian</p>
+                                    <p>Peserta</p>
                                 </a>
                             </li>
                         </ul>
