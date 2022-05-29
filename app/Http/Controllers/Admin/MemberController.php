@@ -20,12 +20,12 @@ class MemberController extends CustomController
     public function index()
     {
         $data = Member::with('user')->get();
-        return view('admin.pengguna.member.index')->with(['data' => $data]);
+        return view('karyawan.pengguna.member.index')->with(['data' => $data]);
     }
 
     public function add_page()
     {
-        return view('admin.pengguna.member.add');
+        return view('karyawan.pengguna.member.add');
     }
 
     public function create()
@@ -56,7 +56,7 @@ class MemberController extends CustomController
     public function edit_page($id)
     {
         $data = User::with('member')->where('id', '=', $id)->firstOrFail();
-        return view('admin.pengguna.member.edit')->with(['data' => $data]);
+        return view('karyawan.pengguna.member.edit')->with(['data' => $data]);
     }
 
     public function patch()

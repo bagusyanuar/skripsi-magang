@@ -38,8 +38,8 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function member()
+    public function karyawan()
     {
-        return $this->hasOne(Member::class, 'user_id');
+        return $this->hasOne(Karyawan::class, 'user_id');
     }
 }

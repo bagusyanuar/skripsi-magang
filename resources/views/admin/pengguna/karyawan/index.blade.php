@@ -11,7 +11,7 @@
     @endif
     <div class="container-fluid pt-3">
         <div class="d-flex align-items-center justify-content-between mb-3">
-            <p class="font-weight-bold mb-0" style="font-size: 20px">Halaman Admin</p>
+            <p class="font-weight-bold mb-0" style="font-size: 20px">Halaman Karyawan</p>
             <ol class="breadcrumb breadcrumb-transparent mb-0">
                 <li class="breadcrumb-item">
                     <a href="/dashboard">Dashboard</a>
@@ -22,7 +22,7 @@
         </div>
         <div class="w-100 p-2">
             <div class="text-right mb-2 pr-3">
-                <a href="/admin/tambah" class="btn btn-primary"><i class="fa fa-plus mr-1"></i><span
+                <a href="/karyawan/tambah" class="btn btn-primary"><i class="fa fa-plus mr-1"></i><span
                         class="font-weight-bold">Tambah</span></a>
             </div>
             <table id="table-data" class="display w-100 table table-bordered">
@@ -30,6 +30,7 @@
                 <tr>
                     <th width="5%" class="text-center">#</th>
                     <th>Username</th>
+                    <th>Nama</th>
                     <th>Hak Akses</th>
                     <th width="20%" class="text-center">Action</th>
                 </tr>
@@ -39,6 +40,7 @@
                     <tr>
                         <td width="5%" class="text-center">{{ $loop->index + 1 }}</td>
                         <td>{{ $v->username }}</td>
+                        <td>{{ $v->karyawan->nama }}</td>
                         <td>{{ $v->role }}</td>
                         <td class="text-center">
                             <a href="/admin/edit/{{ $v->id }}" class="btn btn-sm btn-warning btn-edit"
@@ -59,7 +61,7 @@
     <script src="{{ asset('/js/helper.js') }}"></script>
     <script type="text/javascript">
         function destroy(id) {
-            AjaxPost('/admin/delete', {id}, function () {
+            AjaxPost('/karyawan/delete', {id}, function () {
                 window.location.reload();
             });
         }

@@ -16,13 +16,13 @@ Route::match(['post', 'get'], '/', [\App\Http\Controllers\AuthController::class,
 Route::get('/logout', [\App\Http\Controllers\AuthController::class, 'logout']);
 Route::get('/dashboard', [\App\Http\Controllers\DashboardController::class, 'index']);
 
-Route::group(['prefix' => 'admin'], function () {
-    Route::get( '/', [\App\Http\Controllers\Admin\AdminController::class, 'index']);
-    Route::get( '/tambah', [\App\Http\Controllers\Admin\AdminController::class, 'add_page']);
-    Route::post( '/create', [\App\Http\Controllers\Admin\AdminController::class, 'create']);
-    Route::get( '/edit/{id}', [\App\Http\Controllers\Admin\AdminController::class, 'edit_page']);
-    Route::post( '/patch', [\App\Http\Controllers\Admin\AdminController::class, 'patch']);
-    Route::post( '/delete', [\App\Http\Controllers\Admin\AdminController::class, 'destroy']);
+Route::group(['prefix' => 'karyawan'], function () {
+    Route::get( '/', [\App\Http\Controllers\Admin\KaryawanController::class, 'index']);
+    Route::get( '/tambah', [\App\Http\Controllers\Admin\KaryawanController::class, 'add_page']);
+    Route::post( '/create', [\App\Http\Controllers\Admin\KaryawanController::class, 'create']);
+    Route::get( '/edit/{id}', [\App\Http\Controllers\Admin\KaryawanController::class, 'edit_page']);
+    Route::post( '/patch', [\App\Http\Controllers\Admin\KaryawanController::class, 'patch']);
+    Route::post( '/delete', [\App\Http\Controllers\Admin\KaryawanController::class, 'destroy']);
 });
 
 Route::group(['prefix' => 'member'], function () {

@@ -79,6 +79,13 @@
                             </li>
                         </ul>
                     </li>
+                    <li class="nav-item">
+                        <a href="/bagian"
+                           class="nav-link">
+                            <i class="fa fa-tags nav-icon" aria-hidden="true"></i>
+                            <p>Bagian</p>
+                        </a>
+                    </li>
                 </nav>
             </ul>
         </div>
