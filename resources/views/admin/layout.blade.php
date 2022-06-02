@@ -80,10 +80,17 @@
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a href="/bagian"
+                        <a href="/divisi"
                            class="nav-link">
                             <i class="fa fa-tags nav-icon" aria-hidden="true"></i>
-                            <p>Bagian</p>
+                            <p>Divisi</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/kegiatan"
+                           class="nav-link">
+                            <i class="fa fa-tags nav-icon" aria-hidden="true"></i>
+                            <p>Kegiatan</p>
                         </a>
                     </li>
                 </nav>

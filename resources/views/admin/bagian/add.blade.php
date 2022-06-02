@@ -16,15 +16,15 @@
         </script>
     @endif
     <div class="d-flex align-items-center justify-content-between mb-3">
-        <p class="font-weight-bold mb-0" style="font-size: 20px">Halaman Admin</p>
+        <p class="font-weight-bold mb-0" style="font-size: 20px">Halaman Divisi Kerja</p>
         <ol class="breadcrumb breadcrumb-transparent mb-0">
             <li class="breadcrumb-item">
                 <a href="/dashboard">Dashboard</a>
             </li>
             <li class="breadcrumb-item">
-                <a href="/admin">Admin</a>
+                <a href="/divisi">Divisi</a>
             </li>
-            <li class="breadcrumb-item active" aria-current="page">Edit
+            <li class="breadcrumb-item active" aria-current="page">Tambah
             </li>
         </ol>
     </div>
@@ -33,25 +33,12 @@
             <div class="col-lg-5 col-md-6 col-sm-11">
                 <div class="card">
                     <div class="card-body">
-                        <form method="post" action="/admin/patch">
+                        <form method="post" action="/divisi/create">
                             @csrf
-                            <input type="hidden" name="id" value="{{ $data->id }}">
                             <div class="w-100 mb-1">
-                                <label for="username" class="form-label">Username</label>
-                                <input type="text" class="form-control" id="username" placeholder="Username"
-                                       name="username" value="{{ $data->username }}">
-                            </div>
-                            <div class="w-100 mb-1">
-                                <label for="password" class="form-label">Password</label>
-                                <input type="password" class="form-control" id="password" placeholder="Password"
-                                       name="password">
-                            </div>
-                            <div class="form-group w-100 mb-1">
-                                <label for="role">Hak Akses</label>
-                                <select class="form-control" id="role" name="role">
-                                    <option value="admin" {{ $data->role == 'karyawan' ? 'selected' : '' }}>Admin
-                                    </option>
-                                </select>
+                                <label for="nama" class="form-label">Nama Divisi</label>
+                                <input type="text" class="form-control" id="nama" placeholder="Nama Divisi"
+                                       name="nama">
                             </div>
                             <div class="w-100 mb-2 mt-3 text-right">
                                 <button type="submit" class="btn btn-primary">Simpan</button>

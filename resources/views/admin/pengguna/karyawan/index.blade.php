@@ -43,7 +43,7 @@
                         <td>{{ $v->karyawan->nama }}</td>
                         <td>{{ $v->role }}</td>
                         <td class="text-center">
-                            <a href="/admin/edit/{{ $v->id }}" class="btn btn-sm btn-warning btn-edit"
+                            <a href="/karyawan/edit/{{ $v->id }}" class="btn btn-sm btn-warning btn-edit"
                                data-id="{{ $v->id }}"><i class="fa fa-edit"></i></a>
                             <a href="#" class="btn btn-sm btn-danger btn-delete" data-id="{{ $v->id }}"><i
                                     class="fa fa-trash"></i></a>
@@ -70,7 +70,7 @@
             $('.btn-delete').on('click', function (e) {
                 e.preventDefault();
                 let id = this.dataset.id;
-                AlertConfirm('Judul', 'Text', function () {
+                AlertConfirm('Apakah Anda Yakin?', 'Data yang dihapus tidak dapat dikembalikan!', function () {
                     destroy(id);
                 })
             });

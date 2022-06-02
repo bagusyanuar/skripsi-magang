@@ -1,6 +1,13 @@
 @extends('admin.layout')
 
 @section('css')
+    <link href="{{ asset('/adminlte/plugins/select2/select2.css') }}" rel="stylesheet">
+    <style>
+        .select2-selection {
+            height: 40px !important;
+            line-height: 40px !important;
+        }
+    </style>
 @endsection
 
 @section('content')
@@ -16,13 +23,13 @@
         </script>
     @endif
     <div class="d-flex justify-content-between align-items-center">
-        <h4 class="mb-0">Halaman Tambah Karyawan</h4>
+        <h4 class="mb-0">Halaman Tambah Peserta Magang</h4>
         <ol class="breadcrumb breadcrumb-transparent mb-0">
             <li class="breadcrumb-item">
                 <a href="/dashboard">Dashboard</a>
             </li>
             <li class="breadcrumb-item">
-                <a href="/karyawan">Karyawan</a>
+                <a href="/peserta">Peserta Magang</a>
             </li>
             <li class="breadcrumb-item active" aria-current="page">Tambah
             </li>
@@ -33,7 +40,7 @@
             <div class="col-lg-5 col-md-6 col-sm-11">
                 <div class="card">
                     <div class="card-body">
-                        <form method="post" action="/karyawan/create">
+                        <form method="post" action="/peserta/create">
                             @csrf
                             <div class="w-100 mb-1">
                                 <label for="username" class="form-label">Username</label>
@@ -46,14 +53,32 @@
                                        name="password">
                             </div>
                             <div class="w-100 mb-1">
-                                <label for="nama" class="form-label">Nama Karyawan</label>
+                                <label for="nama" class="form-label">Nama Peserta</label>
                                 <input type="text" class="form-control" id="nama" placeholder="Nama Karyawan"
                                        name="nama">
                             </div>
-                            <div class="form-group w-100 mb-1">
-                                <label for="role">Hak Akses</label>
-                                <select class="form-control" id="role" name="role">
-                                    <option value="admin">Admin</option>
+                            <div class="w-100 mb-1">
+                                <label for="no_hp" class="form-label">No. Hp</label>
+                                <input type="number" class="form-control" id="no_hp"
+                                       name="no_hp">
+                            </div>
+                            <div class="w-100 mb-1">
+                                <label for="alamat" class="form-label">Alamat</label>
+                                <textarea rows="3" class="form-control" id="alamat" placeholder="Alamat"
+                                          name="alamat"></textarea>
+                            </div>
+                            <div class="w-100 mb-1">
+                                <label for="sekolah" class="form-label">Asal Sekolah</label>
+                                <input type="text" class="form-control" id="sekolah" placeholder="Asal Sekolah"
+                                       name="sekolah">
+                            </div>
+                            <div class="form-group w-100">
+                                <label for="divisi">Divisi</label>
+                                <select class="select2" name="divisi" id="divisi" style="width: 100%;">
+                                    <option value="">--Pilih Divisi--</option>
+                                    @foreach($bagian as $v)
+                                        <option value="{{ $v->id }}">{{ $v->nama }}</option>
+                                    @endforeach
                                 </select>
                             </div>
                             <div class="w-100 mb-2 mt-3 text-right">
@@ -68,4 +93,13 @@
 @endsection
 
 @section('js')
+    <script src="{{ asset('/adminlte/plugins/select2/select2.js') }}"></script>
+    <script src="{{ asset('/adminlte/plugins/select2/select2.full.js') }}"></script>
+    <script>
+        $(document).ready(function () {
+            $('.select2').select2({
+                width: 'resolve'
+            });
+        });
+    </script>
 @endsection
