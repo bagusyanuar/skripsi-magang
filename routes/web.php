@@ -50,5 +50,6 @@ Route::group(['prefix' => 'kegiatan'], function () {
     Route::get( '/edit/{id}', [\App\Http\Controllers\Admin\KegiatanController::class, 'edit_page']);
     Route::post( '/patch', [\App\Http\Controllers\Admin\KegiatanController::class, 'patch']);
     Route::post( '/delete', [\App\Http\Controllers\Admin\KegiatanController::class, 'destroy']);
+    Route::get( '/cetak', [\App\Http\Controllers\Laporan\KegiatanController::class, 'cetak']);
 });
 

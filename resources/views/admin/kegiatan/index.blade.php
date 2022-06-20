@@ -20,9 +20,12 @@
         </ol>
     </div>
     <div class="w-100 p-2">
-        <div class="text-right mb-2 pr-3">
+        <div class="text-right mb-2">
             <a href="/kegiatan/tambah" class="btn btn-primary"><i class="fa fa-plus mr-1"></i><span
                     class="font-weight-bold">Tambah</span></a>
+
+            <a href="#" class="btn btn-success ml-2" id="btn-cetak"><i class="fa fa-print mr-1"></i><span
+                    class="font-weight-bold">Cetak</span></a>
         </div>
         <table id="table-data" class="display w-100 table table-bordered">
             <thead>
@@ -83,6 +86,11 @@
                     destroy(id);
                 })
             });
+
+            $('#btn-cetak').on('click', function (e) {
+                e.preventDefault();
+                window.open('/kegiatan/cetak', '_blank');
+            })
         });
     </script>
 @endsection
