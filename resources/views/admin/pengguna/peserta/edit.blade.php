@@ -82,6 +82,15 @@
                                     @endforeach
                                 </select>
                             </div>
+                            <div class="form-group w-100">
+                                <label for="pembimbing">Pembimbing</label>
+                                <select class="select2" name="pembimbing" id="pembimbing" style="width: 100%;">
+                                    <option value="">--Pilih Pembimbing--</option>
+                                    @foreach($karyawan as $v)
+                                        <option value="{{ $v->id }}" {{ $data->peserta->pembimbing_id == $v->id ? 'selected' : '' }}>{{ $v->karyawan->nama }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
                             <div class="w-100 mb-2 mt-3 text-right">
                                 <button type="submit" class="btn btn-primary">Simpan</button>
                             </div>

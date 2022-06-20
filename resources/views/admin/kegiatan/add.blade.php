@@ -15,14 +15,14 @@
             Swal.fire("Gagal", '{{\Illuminate\Support\Facades\Session::get('failed')}}', "error")
         </script>
     @endif
-    <div class="d-flex justify-content-between align-items-center">
-        <h4 class="mb-0">Halaman Tambah Karyawan</h4>
+    <div class="d-flex align-items-center justify-content-between mb-3">
+        <p class="font-weight-bold mb-0" style="font-size: 20px">Halaman Kegiatan Magang</p>
         <ol class="breadcrumb breadcrumb-transparent mb-0">
             <li class="breadcrumb-item">
                 <a href="/dashboard">Dashboard</a>
             </li>
             <li class="breadcrumb-item">
-                <a href="/karyawan">Karyawan</a>
+                <a href="/kegiatan">Kegiatan Magang</a>
             </li>
             <li class="breadcrumb-item active" aria-current="page">Tambah
             </li>
@@ -33,29 +33,17 @@
             <div class="col-lg-5 col-md-6 col-sm-11">
                 <div class="card">
                     <div class="card-body">
-                        <form method="post" action="/karyawan/create">
+                        <form method="post" action="/kegiatan/create">
                             @csrf
                             <div class="w-100 mb-1">
-                                <label for="username" class="form-label">Username</label>
-                                <input type="text" class="form-control" id="username" placeholder="Username"
-                                       name="username">
+                                <label for="tanggal" class="form-label">Tanggal Kegiatan</label>
+                                <input type="date" class="form-control" id="tanggal" value="{{ date('Y-m-d') }}"
+                                          name="tanggal">
                             </div>
                             <div class="w-100 mb-1">
-                                <label for="password" class="form-label">Password</label>
-                                <input type="password" class="form-control" id="password" placeholder="Password"
-                                       name="password">
-                            </div>
-                            <div class="w-100 mb-1">
-                                <label for="nama" class="form-label">Nama Karyawan</label>
-                                <input type="text" class="form-control" id="nama" placeholder="Nama Karyawan"
-                                       name="nama">
-                            </div>
-                            <div class="form-group w-100 mb-1">
-                                <label for="role">Hak Akses</label>
-                                <select class="form-control" id="role" name="role">
-                                    <option value="admin">Admin</option>
-                                    <option value="karyawan">Karyawan</option>
-                                </select>
+                                <label for="deskripsi" class="form-label">Deskripsi Kegiatan</label>
+                                <textarea rows="3" class="form-control" id="deskripsi" placeholder="Kegiatan"
+                                          name="deskripsi"></textarea>
                             </div>
                             <div class="w-100 mb-2 mt-3 text-right">
                                 <button type="submit" class="btn btn-primary">Simpan</button>

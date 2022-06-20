@@ -43,7 +43,8 @@
         </a>
         <div class="my-sidebar-menu">
             <ul class="nav nav-sidebar nav-pills flex-column">
-                <nav class="mt-2 nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                <nav class="mt-2 nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+                     data-accordion="false">
                     <li class="nav-item">
                         <a href="/"
                            class="nav-link">
@@ -51,41 +52,43 @@
                             <p>Dashboard</p>
                         </a>
                     </li>
-                    <li class="nav-header" style="padding: 0.5rem 1rem 0.5rem 1rem;">
-                        Master Data
-                    </li>
-                    <li class="nav-item has-treeview">
-                        <a href="#" class="nav-link">
-                            <i class="nav-icon fa fa-users"></i>
-                            <p>
-                                Pengguna
-                                <i class="right fa fa-angle-down"></i>
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="/karyawan"
-                                   class="nav-link">
-                                    <i class="fa fa-circle-o nav-icon" aria-hidden="true"></i>
-                                    <p>Karyawan</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="/peserta"
-                                   class="nav-link">
-                                    <i class="fa fa-circle-o nav-icon" aria-hidden="true"></i>
-                                    <p>Peserta</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a href="/divisi"
-                           class="nav-link">
-                            <i class="fa fa-tags nav-icon" aria-hidden="true"></i>
-                            <p>Divisi</p>
-                        </a>
-                    </li>
+                    @if(auth()->user()->role == 'admin')
+                        <li class="nav-header" style="padding: 0.5rem 1rem 0.5rem 1rem;">
+                            Master Data
+                        </li>
+                        <li class="nav-item has-treeview">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fa fa-users"></i>
+                                <p>
+                                    Pengguna
+                                    <i class="right fa fa-angle-down"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="/karyawan"
+                                       class="nav-link">
+                                        <i class="fa fa-circle-o nav-icon" aria-hidden="true"></i>
+                                        <p>Karyawan</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/peserta"
+                                       class="nav-link">
+                                        <i class="fa fa-circle-o nav-icon" aria-hidden="true"></i>
+                                        <p>Peserta</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/divisi"
+                               class="nav-link">
+                                <i class="fa fa-tags nav-icon" aria-hidden="true"></i>
+                                <p>Divisi</p>
+                            </a>
+                        </li>
+                    @endif
                     <li class="nav-item">
                         <a href="/kegiatan"
                            class="nav-link">

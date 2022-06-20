@@ -43,3 +43,12 @@ Route::group(['prefix' => 'divisi'], function () {
     Route::post( '/delete', [\App\Http\Controllers\Admin\BagianController::class, 'destroy']);
 });
 
+Route::group(['prefix' => 'kegiatan'], function () {
+    Route::get( '/', [\App\Http\Controllers\Admin\KegiatanController::class, 'index']);
+    Route::get( '/tambah', [\App\Http\Controllers\Admin\KegiatanController::class, 'add_page']);
+    Route::post( '/create', [\App\Http\Controllers\Admin\KegiatanController::class, 'create']);
+    Route::get( '/edit/{id}', [\App\Http\Controllers\Admin\KegiatanController::class, 'edit_page']);
+    Route::post( '/patch', [\App\Http\Controllers\Admin\KegiatanController::class, 'patch']);
+    Route::post( '/delete', [\App\Http\Controllers\Admin\KegiatanController::class, 'destroy']);
+});
+

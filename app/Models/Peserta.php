@@ -14,6 +14,7 @@ class Peserta extends Model
     protected $fillable = [
         'user_id',
         'bagian_id',
+        'pembimbing_id',
         'nama',
         'no_hp',
         'alamat',
@@ -28,5 +29,10 @@ class Peserta extends Model
     public function divisi()
     {
         return $this->belongsTo(Bagian::class, 'bagian_id');
+    }
+
+    public function pembimbing()
+    {
+        return $this->belongsTo(User::class, 'pembimbing_id');
     }
 }
