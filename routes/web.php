@@ -53,3 +53,20 @@ Route::group(['prefix' => 'kegiatan'], function () {
     Route::get( '/cetak', [\App\Http\Controllers\Laporan\KegiatanController::class, 'cetak']);
 });
 
+
+Route::group(['prefix' => 'peserta-bimbingan'], function () {
+    Route::get( '/', [\App\Http\Controllers\Pembimbing\PesertaController::class, 'index']);
+    Route::get( '/{id}/detail', [\App\Http\Controllers\Pembimbing\PesertaController::class, 'detail']);
+    Route::post( '/{id}/nilai', [\App\Http\Controllers\Pembimbing\PesertaController::class, 'nilai']);
+});
+
+Route::group(['prefix' => 'laporan-peserta'], function () {
+    Route::get( '/', [\App\Http\Controllers\Laporan\PesertaController::class, 'index']);
+    Route::get( '/cetak', [\App\Http\Controllers\Laporan\PesertaController::class, 'cetak']);
+});
+
+Route::group(['prefix' => 'laporan-kegiatan'], function () {
+    Route::get( '/', [\App\Http\Controllers\Laporan\KegiatanPesertaController::class, 'index']);
+    Route::get( '/data', [\App\Http\Controllers\Laporan\KegiatanPesertaController::class, 'laporan_kegiatan']);
+    Route::get( '/cetak', [\App\Http\Controllers\Laporan\KegiatanPesertaController::class, 'cetak']);
+});

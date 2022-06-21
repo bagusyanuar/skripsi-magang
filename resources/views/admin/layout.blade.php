@@ -88,14 +88,49 @@
                                 <p>Divisi</p>
                             </a>
                         </li>
+                        <li class="nav-item has-treeview">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fa fa-bar-chart"></i>
+                                <p>
+                                    Laporan
+                                    <i class="right fa fa-angle-down"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="/laporan-peserta"
+                                       class="nav-link">
+                                        <i class="fa fa-circle-o nav-icon" aria-hidden="true"></i>
+                                        <p>Peserta Magang</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/laporan-kegiatan"
+                                       class="nav-link">
+                                        <i class="fa fa-circle-o nav-icon" aria-hidden="true"></i>
+                                        <p>Kegiatan</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    @elseif(auth()->user()->role == 'peserta')
+                        <li class="nav-item">
+                            <a href="/kegiatan"
+                               class="nav-link">
+                                <i class="fa fa-tags nav-icon" aria-hidden="true"></i>
+                                <p>Kegiatan</p>
+                            </a>
+                        </li>
+                    @elseif(auth()->user()->role == 'karyawan')
+                        <li class="nav-item">
+                            <a href="/peserta-bimbingan"
+                               class="nav-link">
+                                <i class="fa fa-tags nav-icon" aria-hidden="true"></i>
+                                <p>Peserta Bimbingan</p>
+                            </a>
+                        </li>
                     @endif
-                    <li class="nav-item">
-                        <a href="/kegiatan"
-                           class="nav-link">
-                            <i class="fa fa-tags nav-icon" aria-hidden="true"></i>
-                            <p>Kegiatan</p>
-                        </a>
-                    </li>
+
                 </nav>
             </ul>
         </div>

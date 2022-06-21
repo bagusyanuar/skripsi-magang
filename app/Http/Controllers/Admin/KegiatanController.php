@@ -17,7 +17,8 @@ class KegiatanController extends CustomController
     }
 
     public function index() {
-        $data = Kegiatan::all();
+        $id = Auth::id();
+        $data = Kegiatan::with('user')->where('user_id', '=', $id)->get();
         return view('admin.kegiatan.index')->with(['data' => $data]);
     }
 

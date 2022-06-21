@@ -36,3 +36,20 @@ async function AjaxPost(url, param = {}, onSuccess = function () {}) {
         ErrorAlert('Error', e.responseText.toString());
     }
 }
+
+function DataTableGenerator(element, url = '/', col = [], colDef = [], data = function () {}, extConfig = {}) {
+    let baseConfig = {
+        scrollX: true,
+        processing: true,
+        ajax: {
+            type: 'GET',
+            url: url,
+            'data': data
+        },
+        columnDefs: colDef,
+        columns: col,
+        paging: true,
+    };
+    let config = {...baseConfig, ...extConfig};
+    return $(element).DataTable(config);
+}
