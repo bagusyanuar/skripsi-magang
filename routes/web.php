@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::match(['post', 'get'], '/', [\App\Http\Controllers\AuthController::class, 'login']);
+Route::match(['post', 'get'], '/register', [\App\Http\Controllers\AuthController::class, 'register']);
 Route::get('/logout', [\App\Http\Controllers\AuthController::class, 'logout']);
 Route::get('/dashboard', [\App\Http\Controllers\DashboardController::class, 'index']);
 

@@ -18,7 +18,11 @@ class Peserta extends Model
         'nama',
         'no_hp',
         'alamat',
-        'sekolah'
+        'sekolah',
+        'status',
+        'masuk',
+        'keluar',
+        'keterangan',
     ];
 
     public function user()
