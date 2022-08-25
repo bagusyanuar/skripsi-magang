@@ -18,16 +18,13 @@
         Swal.fire("Gagal", '{{\Illuminate\Support\Facades\Session::get('failed')}}', "error")
     </script>
 @endif
-<div class="w-100 pt-2" style="min-height: 700px; background-color: brown">
-    <div class="row w-100 mt-5">
-        <div class="col-md-6 col-lg-7 d-flex justify-content-center">
-            <img src="{{ asset('/assets/icon/logo-wonogiri.png') }}" width="350">
-        </div>
+<div class="w-100 pt-2 login-body" >
+    <div class="row justify-content-center w-100 mt-2">
         <div class="col-lg-5 col-md-6 col-sm-11">
             <div class="card">
                 <div class="card-body">
-                    <img src="{{ asset('/assets/icon/logo.png') }}" class="w-100 login-icon mb-3"/>
-                    <p class="f-bold mb-2 text-center" style="font-size: 18px">Silahkan Login</p>
+                    <img src="{{ asset('/assets/icon/logo-wonogiri.png') }}" class="w-100 login-icon mb-3"/>
+                    <p class="f-bold mb-2 text-center" style="font-size: 18px">Silahkan Daftar</p>
                     <form method="post">
                         @csrf
                         <div class="row">
@@ -66,6 +63,11 @@
                             <label for="alamat" class="form-label">Alamat</label>
                             <textarea rows="3" class="form-control" id="alamat" placeholder="Alamat"
                                       name="alamat"></textarea>
+                        </div>
+                        <div class="w-100 mb-1">
+                            <label for="sekolah" class="form-label">Asal Sekolah</label>
+                            <input type="text" class="form-control" id="sekolah" placeholder="Asal Sekolah"
+                                   name="sekolah">
                         </div>
                         <div class="w-100 mb-2 mt-3">
                             <button type="submit" class="btn btn-primary w-100">Daftar</button>

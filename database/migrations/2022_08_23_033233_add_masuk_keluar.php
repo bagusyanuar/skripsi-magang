@@ -17,7 +17,6 @@ class AddMasukKeluar extends Migration
             $table->string('status')->after('sekolah')->default('menunggu');
             $table->date('masuk')->after('status')->nullable();
             $table->date('keluar')->after('masuk')->nullable();
-            $table->text('keterangan')->after('keluar');
         });
     }
 
@@ -32,7 +31,6 @@ class AddMasukKeluar extends Migration
             $table->dropColumn('status');
             $table->dropColumn('masuk');
             $table->dropColumn('keluar');
-            $table->dropColumn('keterangan');
         });
     }
 }

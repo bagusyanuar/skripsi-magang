@@ -88,6 +88,13 @@
                                 <p>Divisi</p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="/pengajuan"
+                               class="nav-link">
+                                <i class="fa fa-tags nav-icon" aria-hidden="true"></i>
+                                <p>Pengajuan</p>
+                            </a>
+                        </li>
                         <li class="nav-item has-treeview">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fa fa-bar-chart"></i>
@@ -114,13 +121,23 @@
                             </ul>
                         </li>
                     @elseif(auth()->user()->role == 'peserta')
+
                         <li class="nav-item">
-                            <a href="/kegiatan"
+                            <a href="/pengajuan-magang"
                                class="nav-link">
-                                <i class="fa fa-tags nav-icon" aria-hidden="true"></i>
-                                <p>Kegiatan</p>
+                                <i class="fa fa-sticky-note nav-icon" aria-hidden="true"></i>
+                                <p>Pengajuan Magang</p>
                             </a>
                         </li>
+                        @if(auth()->user()->peserta->status != 'menunggu')
+                            <li class="nav-item">
+                                <a href="/kegiatan"
+                                   class="nav-link">
+                                    <i class="fa fa-tags nav-icon" aria-hidden="true"></i>
+                                    <p>Kegiatan</p>
+                                </a>
+                            </li>
+                        @endif
                     @elseif(auth()->user()->role == 'karyawan')
                         <li class="nav-item">
                             <a href="/peserta-bimbingan"

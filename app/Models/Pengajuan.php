@@ -5,23 +5,20 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Peserta extends Model
+class Pengajuan extends Model
 {
     use HasFactory;
 
-    protected $table = 'peserta';
+    protected $table = 'pengajuan';
 
     protected $fillable = [
         'user_id',
+        'tanggal',
         'bagian_id',
-        'pembimbing_id',
-        'nama',
-        'no_hp',
-        'alamat',
-        'sekolah',
+        'tanggal_mulai',
+        'tanggal_selesai',
         'status',
-        'masuk',
-        'keluar',
+        'keterangan'
     ];
 
     public function user()
@@ -29,13 +26,8 @@ class Peserta extends Model
         return $this->belongsTo(User::class, 'user_id');
     }
 
-    public function divisi()
+    public function bagian()
     {
         return $this->belongsTo(Bagian::class, 'bagian_id');
-    }
-
-    public function pembimbing()
-    {
-        return $this->belongsTo(User::class, 'pembimbing_id');
     }
 }

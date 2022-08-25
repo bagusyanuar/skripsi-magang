@@ -43,7 +43,7 @@ class AuthController extends CustomController
                 $user_data = [
                     'username' => $this->postField('username'),
                     'password' => Hash::make($this->postField('password')),
-                    'role' => 'member'
+                    'role' => 'peserta'
                 ];
                 $user = $this->insert(User::class, $user_data);
                 $member_data = [
@@ -53,9 +53,6 @@ class AuthController extends CustomController
                     'alamat' => $this->postField('alamat'),
                     'sekolah' => $this->postField('sekolah'),
                     'status' => 'menunggu',
-                    'masuk' => $this->postField('masuk'),
-                    'keluar' => $this->postField('keluar'),
-                    'keterangan' => ''
                 ];
                 $this->insert(Peserta::class, $member_data);
                 DB::commit();
