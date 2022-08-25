@@ -21,8 +21,10 @@
     </div>
     <div class="w-100 p-2">
         <div class="text-right mb-2">
-            <a href="/pengajuan-magang/tambah" class="btn btn-primary"><i class="fa fa-plus mr-1"></i><span
-                    class="font-weight-bold">Buat Pengajuan</span></a>
+            @if(auth()->user()->peserta->status == 'menunggu')
+                <a href="/pengajuan-magang/tambah" class="btn btn-primary"><i class="fa fa-plus mr-1"></i><span
+                        class="font-weight-bold">Buat Pengajuan</span></a>
+            @endif
         </div>
         <table id="table-data" class="display w-100 table table-bordered">
             <thead>
@@ -44,6 +46,7 @@
                     <td width="15%">{{ $v->tanggal_mulai }}</td>
                     <td width="15%">{{ $v->tanggal_selesai }}</td>
                     <td class="text-center">{{ $v->bagian->nama }}</td>
+                    <td class="text-center">{{ $v->status }}</td>
                     <td class="text-center">
                         <a href="/kegiatan/detail/{{ $v->id }}" class="btn btn-sm btn-success btn-delete"
                            data-id="{{ $v->id }}"><i

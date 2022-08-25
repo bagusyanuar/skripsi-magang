@@ -129,7 +129,7 @@
                                 <p>Pengajuan Magang</p>
                             </a>
                         </li>
-                        @if(auth()->user()->peserta->status != 'menunggu')
+                        @if(auth()->user()->peserta->status == 'menunggu' && auth()->user()->peserta->status == 'mengajukan')
                             <li class="nav-item">
                                 <a href="/kegiatan"
                                    class="nav-link">
