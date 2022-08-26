@@ -22,8 +22,8 @@
         <div class="col-lg-4 col-md-6 col-sm-11">
             <div class="card">
                 <div class="card-body">
-                    <img src="{{ asset('/assets/icon/logo.png') }}" class="w-100 login-icon mb-3"/>
-                    <p class="f-bold mb-2 text-center" style="font-size: 18px">FORM LOGIN</p>
+                    <img src="{{ asset('/assets/icon/logo-wonogiri.png') }}" class="w-100 login-icon mb-3"/>
+                    <p class="f-bold mb-2 text-center" style="font-size: 18px">Form Login</p>
                     <form method="post">
                         @csrf
                         <div class="w-100 mb-1">

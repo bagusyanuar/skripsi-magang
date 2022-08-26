@@ -24,6 +24,7 @@
             <thead>
             <tr>
                 <th width="5%" class="text-center">#</th>
+                <th>No. Pengajuan</th>
                 <th>Nama Peserta</th>
                 <th width="15%">Tanggal Mulai</th>
                 <th width="15%">Tanggal Selesai</th>
@@ -35,6 +36,7 @@
             @foreach($data as $v)
                 <tr>
                     <td width="5%" class="text-center">{{ $loop->index + 1 }}</td>
+                    <td>{{ $v->no_pengajuan }}</td>
                     <td>{{ $v->user->peserta->nama }}</td>
                     <td>{{ $v->tanggal_mulai }}</td>
                     <td>{{ $v->tanggal_selesai }}</td>

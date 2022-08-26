@@ -38,6 +38,7 @@ class PengajuanController extends CustomController
     {
         DB::beginTransaction();
         try {
+            $no_pengajuan = 'PS-MGN-' . \date('YmdHis');
             $data = [
                 'user_id' => Auth::id(),
                 'tanggal' => Carbon::now(),
@@ -45,7 +46,8 @@ class PengajuanController extends CustomController
                 'tanggal_mulai' => $this->postField('mulai'),
                 'tanggal_selesai' => $this->postField('selesai'),
                 'status' => 'menunggu',
-                'keterangan' => ''
+                'keterangan' => '',
+                'no_pengajuan' => $no_pengajuan
             ];
             Pengajuan::create($data);
             $peserta = Peserta::with('user')
@@ -67,5 +69,14 @@ class PengajuanController extends CustomController
         $data = Pengajuan::with(['user', 'bagian'])
             ->findOrFail($id);
         return view('peserta.pengajuan.detail')->with(['data' => $data]);
+    }
+
+    public function cetak($id)
+    {
+        $data = Pengajuan::with(['user', 'bagian'])
+            ->findOrFail($id);
+        return $this->convertToPdf('peserta.pengajuan.cetak', [
+            'data' => $data
+        ]);
     }
 }

@@ -53,7 +53,7 @@ class PengajuanController extends CustomController
                         'keluar' => $data->tanggal_selesai,
                     ]);
                 }
-                return redirect('/pengajuan')->with(['succes' => 'Berhasil Merubah Data...']);
+                return redirect('/pengajuan')->with(['success' => 'Berhasil Merubah Data...']);
             } catch (\Exception $e) {
                 return redirect()->back()->with(['failed' => 'Terjadi Kesalahan ' . $e->getMessage()]);
             }

@@ -62,6 +62,7 @@ Route::group(['prefix' => 'pengajuan'], function () {
 Route::group(['prefix' => 'pengajuan-magang'], function () {
     Route::get( '/', [\App\Http\Controllers\Peserta\PengajuanController::class, 'index']);
     Route::get( '/{id}/detail', [\App\Http\Controllers\Peserta\PengajuanController::class, 'detail']);
+    Route::get( '/{id}/cetak', [\App\Http\Controllers\Peserta\PengajuanController::class, 'cetak']);
     Route::get( '/tambah', [\App\Http\Controllers\Peserta\PengajuanController::class, 'add_page']);
     Route::post( '/create', [\App\Http\Controllers\Peserta\PengajuanController::class, 'create']);
 });

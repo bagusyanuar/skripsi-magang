@@ -48,9 +48,13 @@
                     <td class="text-center">{{ $v->bagian->nama }}</td>
                     <td class="text-center">{{ $v->status }}</td>
                     <td class="text-center">
-                        <a href="/pengajuan-magang/{{ $v->id }}/detail" class="btn btn-sm btn-success"
-                           data-id="{{ $v->id }}"><i
-                                class="fa fa-info"></i></a>
+                        @if($v->status == 'menunggu')
+                            -
+                        @else
+                            <a href="/pengajuan-magang/{{ $v->id }}/detail" class="btn btn-sm btn-success"
+                               data-id="{{ $v->id }}"><i
+                                    class="fa fa-info"></i></a>
+                        @endif
                     </td>
                 </tr>
             @endforeach

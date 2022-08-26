@@ -44,6 +44,14 @@
                         <hr>
                         <div class="row mb-1">
                             <div class="col-lg-4">
+                                <span class="font-weight-bold">No. Pengajuan :</span>
+                            </div>
+                            <div class="col-lg-8">
+                                <span class="font-weight-bold">{{ $data->no_pengajuan }}</span>
+                            </div>
+                        </div>
+                        <div class="row mb-1">
+                            <div class="col-lg-4">
                                 <span class="font-weight-bold">Nama Peserta :</span>
                             </div>
                             <div class="col-lg-8">

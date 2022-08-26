@@ -52,6 +52,7 @@
                             @if($data->status == 'terima')
                                 dengan ketentuan sebagai berikut :
                             @else
+                                dengan keterangan sebagai berikut :
                             @endif
                         </p>
                         @if($data->status == 'terima')
@@ -71,9 +72,34 @@
                                         wajib mematuhi tata tertib institusi kami.</p>
                                 </li>
                             </ol>
+
                         @else
+                            <p class="font-weight-bold text-center f-14">{{ $data->keterangan }}</p>
                         @endif
+                        <p class="f-14 text-justify">Demikianlah pemberitahuan ini kami sampaikan, atas perhatian
+                            dan kerjasamanya, kami ucapkan terima kasih.
+                        </p>
+                        <br>
+                        <br>
+                        <div class="row">
+                            <div class="col-lg-3 col-md-3">
+                                <p class="text-center f-14">Wonogiri, {{ $data->updated_at->format('d-m-Y') }}</p>
+                                <p class="text-center f-14">Hormat Kami</p>
+                                <div class="text-center">
+                                    <img src="{{ asset('/assets/icon/ttd.png') }}" height="80" class="text-center">
+                                </div>
+                                <p class="text-center f-14 mb-0 font-weight-bold">Drs. Bambang, M.M</p>
+                                <p class="text-center f-14 font-weight-bold">(Kepala Dinas)</p>
+                            </div>
+                        </div>
+
                     </div>
+                </div>
+                <div class="text-right mt-2">
+                    <a href="/pengajuan-magang/{{ $data->id }}/cetak" target="_blank" class="btn btn-success">
+                        <i class="fa fa-print mr-2"></i>
+                        <span>Cetak</span>
+                    </a>
                 </div>
             </div>
         </div>
