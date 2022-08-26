@@ -61,4 +61,11 @@ class PengajuanController extends CustomController
             return redirect()->back()->with(['failed' => 'Terjadi Kesalahan ' . $e->getMessage()]);
         }
     }
+
+    public function detail($id)
+    {
+        $data = Pengajuan::with(['user', 'bagian'])
+            ->findOrFail($id);
+        return view('peserta.pengajuan.detail')->with(['data' => $data]);
+    }
 }

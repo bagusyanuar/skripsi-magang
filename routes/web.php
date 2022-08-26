@@ -56,11 +56,12 @@ Route::group(['prefix' => 'kegiatan'], function () {
 
 Route::group(['prefix' => 'pengajuan'], function () {
     Route::get( '/', [\App\Http\Controllers\Admin\PengajuanController::class, 'index']);
-    Route::get( '/detail', [\App\Http\Controllers\Admin\PengajuanController::class, 'detail']);
+    Route::match(['post', 'get'], '/{id}', [\App\Http\Controllers\Admin\PengajuanController::class, 'detail']);
 });
 
 Route::group(['prefix' => 'pengajuan-magang'], function () {
     Route::get( '/', [\App\Http\Controllers\Peserta\PengajuanController::class, 'index']);
+    Route::get( '/{id}/detail', [\App\Http\Controllers\Peserta\PengajuanController::class, 'detail']);
     Route::get( '/tambah', [\App\Http\Controllers\Peserta\PengajuanController::class, 'add_page']);
     Route::post( '/create', [\App\Http\Controllers\Peserta\PengajuanController::class, 'create']);
 });

@@ -91,7 +91,7 @@
                         <li class="nav-item">
                             <a href="/pengajuan"
                                class="nav-link">
-                                <i class="fa fa-tags nav-icon" aria-hidden="true"></i>
+                                <i class="fa fa-sticky-note nav-icon" aria-hidden="true"></i>
                                 <p>Pengajuan</p>
                             </a>
                         </li>
@@ -129,7 +129,7 @@
                                 <p>Pengajuan Magang</p>
                             </a>
                         </li>
-                        @if(auth()->user()->peserta->status == 'menunggu' && auth()->user()->peserta->status == 'mengajukan')
+                        @if(auth()->user()->peserta->status != 'menunggu' && auth()->user()->peserta->status != 'mengajukan')
                             <li class="nav-item">
                                 <a href="/kegiatan"
                                    class="nav-link">

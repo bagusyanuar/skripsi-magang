@@ -12,6 +12,7 @@ class Pengajuan extends Model
     protected $table = 'pengajuan';
 
     protected $fillable = [
+        'no_pengajuan',
         'user_id',
         'tanggal',
         'bagian_id',

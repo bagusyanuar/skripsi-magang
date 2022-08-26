@@ -48,7 +48,7 @@
                     <td class="text-center">{{ $v->bagian->nama }}</td>
                     <td class="text-center">{{ $v->status }}</td>
                     <td class="text-center">
-                        <a href="/kegiatan/detail/{{ $v->id }}" class="btn btn-sm btn-success btn-delete"
+                        <a href="/pengajuan-magang/{{ $v->id }}/detail" class="btn btn-sm btn-success"
                            data-id="{{ $v->id }}"><i
                                 class="fa fa-info"></i></a>
                     </td>

@@ -10,12 +10,12 @@
         </script>
     @endif
     <div class="d-flex align-items-center justify-content-between mb-3">
-        <p class="font-weight-bold mb-0" style="font-size: 20px">Halaman Permohonan Peserta Magang</p>
+        <p class="font-weight-bold mb-0" style="font-size: 20px">Halaman Pengajuan Permohonan Peserta Magang</p>
         <ol class="breadcrumb breadcrumb-transparent mb-0">
             <li class="breadcrumb-item">
                 <a href="/dashboard">Dashboard</a>
             </li>
-            <li class="breadcrumb-item active" aria-current="page">Permohonan Peserta Magang
+            <li class="breadcrumb-item active" aria-current="page">Pengajuan Permohonan Peserta Magang
             </li>
         </ol>
     </div>
@@ -24,29 +24,29 @@
             <thead>
             <tr>
                 <th width="5%" class="text-center">#</th>
-                <th width="15%">Nama Peserta</th>
-                <th>Tanggal Mulai</th>
-                <th>Tanggal Selesai</th>
-                <th>Divisi</th>
+                <th>Nama Peserta</th>
+                <th width="15%">Tanggal Mulai</th>
+                <th width="15%">Tanggal Selesai</th>
+                <th class="text-center">Divisi</th>
                 <th width="10%" class="text-center">Detail</th>
             </tr>
             </thead>
             <tbody>
-            {{--            @foreach($data as $v)--}}
-                            <tr>
-                                <td width="5%" class="text-center">1</td>
-                                <td>Peserta 1</td>
-                                <td>24-08-2022</td>
-                                <td>24-11-2022</td>
-                                <td class="text-center">
-                                    IT Support
-                                </td>
-                                <td class="text-center">
-                                    <a href="/pengajuan/detail" class="btn btn-sm btn-info btn-edit"
-                                       data-id=""><i class="fa fa-info"></i></a>
-                                </td>
-                            </tr>
-            {{--            @endforeach--}}
+            @foreach($data as $v)
+                <tr>
+                    <td width="5%" class="text-center">{{ $loop->index + 1 }}</td>
+                    <td>{{ $v->user->peserta->nama }}</td>
+                    <td>{{ $v->tanggal_mulai }}</td>
+                    <td>{{ $v->tanggal_selesai }}</td>
+                    <td class="text-center">
+                        {{ $v->bagian->nama }}
+                    </td>
+                    <td class="text-center">
+                        <a href="/pengajuan/{{ $v->id }}" class="btn btn-sm btn-info btn-edit"
+                           data-id=""><i class="fa fa-info"></i></a>
+                    </td>
+                </tr>
+            @endforeach
             </tbody>
         </table>
     </div>
