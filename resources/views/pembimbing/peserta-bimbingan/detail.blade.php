@@ -62,6 +62,7 @@
                 <th width="15%">Tanggal</th>
                 <th>Deskripsi Kegiatan</th>
                 <th width="15%">Nilai</th>
+                <th width="20%">Bukti</th>
                 <th width="10%" class="text-center">Action</th>
             </tr>
             </thead>
@@ -72,10 +73,23 @@
                     <td>{{ $v->tanggal }}</td>
                     <td>{{ $v->deskripsi }}</td>
                     <td>{{ $v->nilai }}</td>
+                    <td>
+                        <a target="_blank"
+                           href="{{ asset('assets/bukti')."/".$v->bukti }}">
+                            <img
+                                src="{{ asset('assets/bukti')."/".$v->bukti }}"
+                                alt="Gambar Produk"
+                                style="width: 75px; height: 80px; object-fit: cover"/>
+                        </a>
+                    </td>
                     <td class="text-center">
-                        <a href="#" class="btn btn-sm btn-success btn-nilai"
-                           data-id="{{ $v->id }}" data-nama="{{ $v->deskripsi }}" data-nilai="{{ $v->nilai }}"><i
-                                class="fa fa-sticky-note"></i></a>
+                        @if($user->peserta->status == 'aktif')
+                            <a href="#" class="btn btn-sm btn-success btn-nilai"
+                               data-id="{{ $v->id }}" data-nama="{{ $v->deskripsi }}" data-nilai="{{ $v->nilai }}"><i
+                                    class="fa fa-sticky-note"></i></a>
+                        @else
+                            <span>-</span>
+                        @endif
                     </td>
                 </tr>
             @endforeach

@@ -15,7 +15,8 @@ class Kegiatan extends Model
         'user_id',
         'tanggal',
         'deskripsi',
-        'nilai'
+        'nilai',
+        'bukti',
     ];
 
     public function user() {

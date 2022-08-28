@@ -28,6 +28,7 @@ Route::group(['prefix' => 'karyawan'], function () {
 
 Route::group(['prefix' => 'peserta'], function () {
     Route::get( '/', [\App\Http\Controllers\Admin\PesertaController::class, 'index']);
+    Route::get( '/{id}/detail', [\App\Http\Controllers\Admin\PesertaController::class, 'detail']);
     Route::get( '/tambah', [\App\Http\Controllers\Admin\PesertaController::class, 'add_page']);
     Route::post( '/create', [\App\Http\Controllers\Admin\PesertaController::class, 'create']);
     Route::get( '/edit/{id}', [\App\Http\Controllers\Admin\PesertaController::class, 'edit_page']);

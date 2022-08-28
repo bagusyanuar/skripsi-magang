@@ -35,11 +35,11 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-1">
     <div class="sidebar">
         <a href="/" class="brand-link">
-            <img src="{{ asset('assets/icon/logo.png') }}"
+            <img src="{{ asset('assets/icon/logo-wonogiri.png') }}"
                  alt="AdminLTE Logo"
                  class="brand-image"
             >
-            <span class="brand-text font-weight-light">Laravel</span>
+            <span class="brand-text font-weight-light">Kab. Wonogiri</span>
         </a>
         <div class="my-sidebar-menu">
             <ul class="nav nav-sidebar nav-pills flex-column">
@@ -56,31 +56,38 @@
                         <li class="nav-header" style="padding: 0.5rem 1rem 0.5rem 1rem;">
                             Master Data
                         </li>
-                        <li class="nav-item has-treeview">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fa fa-users"></i>
-                                <p>
-                                    Pengguna
-                                    <i class="right fa fa-angle-down"></i>
-                                </p>
+                        <li class="nav-item">
+                            <a href="/karyawan"
+                               class="nav-link">
+                                <i class="fa fa-vcard nav-icon" aria-hidden="true"></i>
+                                <p>Karyawan</p>
                             </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="/karyawan"
-                                       class="nav-link">
-                                        <i class="fa fa-circle-o nav-icon" aria-hidden="true"></i>
-                                        <p>Karyawan</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="/peserta"
-                                       class="nav-link">
-                                        <i class="fa fa-circle-o nav-icon" aria-hidden="true"></i>
-                                        <p>Peserta</p>
-                                    </a>
-                                </li>
-                            </ul>
                         </li>
+{{--                        <li class="nav-item has-treeview">--}}
+{{--                            <a href="#" class="nav-link">--}}
+{{--                                <i class="nav-icon fa fa-users"></i>--}}
+{{--                                <p>--}}
+{{--                                    Pengguna--}}
+{{--                                    <i class="right fa fa-angle-down"></i>--}}
+{{--                                </p>--}}
+{{--                            </a>--}}
+{{--                            <ul class="nav nav-treeview">--}}
+{{--                                <li class="nav-item">--}}
+{{--                                    <a href="/karyawan"--}}
+{{--                                       class="nav-link">--}}
+{{--                                        <i class="fa fa-circle-o nav-icon" aria-hidden="true"></i>--}}
+{{--                                        <p>Karyawan</p>--}}
+{{--                                    </a>--}}
+{{--                                </li>--}}
+{{--                                <li class="nav-item">--}}
+{{--                                    <a href="/peserta"--}}
+{{--                                       class="nav-link">--}}
+{{--                                        <i class="fa fa-circle-o nav-icon" aria-hidden="true"></i>--}}
+{{--                                        <p>Peserta</p>--}}
+{{--                                    </a>--}}
+{{--                                </li>--}}
+{{--                            </ul>--}}
+{{--                        </li>--}}
                         <li class="nav-item">
                             <a href="/divisi"
                                class="nav-link">
@@ -89,10 +96,17 @@
                             </a>
                         </li>
                         <li class="nav-item">
+                            <a href="/peserta"
+                               class="nav-link">
+                                <i class="fa fa-group nav-icon" aria-hidden="true"></i>
+                                <p>Peserta Magang</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a href="/pengajuan"
                                class="nav-link">
                                 <i class="fa fa-sticky-note nav-icon" aria-hidden="true"></i>
-                                <p>Pengajuan</p>
+                                <p>Pengajuan Magang</p>
                             </a>
                         </li>
                         <li class="nav-item has-treeview">

@@ -7,6 +7,7 @@ namespace App\Http\Controllers\Admin;
 use App\Helper\CustomController;
 use App\Models\Bagian;
 use App\Models\Karyawan;
+use App\Models\Kegiatan;
 use App\Models\Peserta;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
@@ -22,10 +23,29 @@ class PesertaController extends CustomController
 
     public function index()
     {
-        $data = User::with(['peserta.divisi', 'peserta.pembimbing.karyawan'])->where('role', '=', 'peserta')->get();
-        return view('admin.pengguna.peserta.index')->with(['data' => $data]);
+        $aktif = User::with(['peserta.divisi', 'peserta.pembimbing.karyawan'])
+            ->where('role', '=', 'peserta')
+            ->whereHas('peserta', function ($q) {
+                return $q->where('status', '=', 'aktif');
+            })
+            ->get();
+        $selesai = User::with(['peserta.divisi', 'peserta.pembimbing.karyawan'])
+            ->where('role', '=', 'peserta')
+            ->whereHas('peserta', function ($q) {
+                return $q->where('status', '=', 'selesai');
+            })
+            ->get();
+        return view('admin.pengguna.peserta.index')->with(['aktif' => $aktif, 'selesai' => $selesai]);
     }
 
+    public function detail($id)
+    {
+        $data = User::with(['peserta.divisi', 'peserta.pembimbing.karyawan'])->findOrFail($id);
+        $kegiatan = Kegiatan::with('user')
+            ->where('user_id', '=', $id)
+            ->get();
+        return view('admin.pengguna.peserta.detail')->with(['data' => $data, 'kegiatan' => $kegiatan]);
+    }
     public function add_page()
     {
         $bagian = Bagian::all();
@@ -98,7 +118,7 @@ class PesertaController extends CustomController
             $peserta->update($peserta_data);
             DB::commit();
             return redirect('/peserta')->with(['success' => 'Berhasil Merubah Data...']);
-        }catch (\Exception $e) {
+        } catch (\Exception $e) {
             DB::rollBack();
             return redirect()->back()->with(['failed' => 'Terjadi Kesalahan' . $e->getMessage()]);
         }
@@ -113,7 +133,7 @@ class PesertaController extends CustomController
             User::destroy($id);
             DB::commit();
             return $this->jsonResponse('success', 200);
-        }catch (\Exception $e) {
+        } catch (\Exception $e) {
             DB::rollBack();
             return $this->jsonResponse('failed', 500);
         }

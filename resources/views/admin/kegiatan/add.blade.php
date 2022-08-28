@@ -33,17 +33,23 @@
             <div class="col-lg-5 col-md-6 col-sm-11">
                 <div class="card">
                     <div class="card-body">
-                        <form method="post" action="/kegiatan/create">
+                        <form method="post" action="/kegiatan/create" enctype="multipart/form-data">
                             @csrf
-                            <div class="w-100 mb-1">
-                                <label for="tanggal" class="form-label">Tanggal Kegiatan</label>
-                                <input type="date" class="form-control" id="tanggal" value="{{ date('Y-m-d') }}"
-                                          name="tanggal">
-                            </div>
+{{--                            <div class="w-100 mb-1">--}}
+{{--                                <label for="tanggal" class="form-label">Tanggal Kegiatan</label>--}}
+{{--                                <input type="date" class="form-control" id="tanggal" value="{{ date('Y-m-d') }}"--}}
+{{--                                          name="tanggal">--}}
+{{--                            </div>--}}
                             <div class="w-100 mb-1">
                                 <label for="deskripsi" class="form-label">Deskripsi Kegiatan</label>
                                 <textarea rows="3" class="form-control" id="deskripsi" placeholder="Kegiatan"
                                           name="deskripsi"></textarea>
+                            </div>
+                            <div class="w-100 mb-1">
+                                <label for="bukti" class="form-label">Gambar Bukti Kegiatan</label>
+                                <input type="file" class="form-control-file" id="bukti"
+                                       placeholder="Gambar Bukti"
+                                       name="bukti" required>
                             </div>
                             <div class="w-100 mb-2 mt-3 text-right">
                                 <button type="submit" class="btn btn-primary">Simpan</button>

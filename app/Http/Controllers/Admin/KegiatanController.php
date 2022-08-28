@@ -7,6 +7,7 @@ namespace App\Http\Controllers\Admin;
 use App\Helper\CustomController;
 use App\Models\Bagian;
 use App\Models\Kegiatan;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 
 class KegiatanController extends CustomController
@@ -31,12 +32,18 @@ class KegiatanController extends CustomController
     {
         try {
 
-            Kegiatan::create([
+            $data = [
                 'user_id' => Auth::id(),
-                'tanggal' => $this->postField('tanggal'),
+                'tanggal' => Carbon::now(),
                 'deskripsi' => $this->postField('deskripsi'),
                 'nilai' => '-',
-            ]);
+            ];
+            $nama_gambar = $this->generateImageName('bukti');
+            if ($nama_gambar !== '') {
+                $data['bukti'] = $nama_gambar;
+                $this->uploadImage('bukti', $nama_gambar, 'bukti');
+            }
+            Kegiatan::create($data);
             return redirect()->back()->with(['success' => 'Berhasil Menambahkan Data...']);
         } catch (\Exception $e) {
             return redirect()->back()->with(['failed' => 'Terjadi Kesalahan ' . $e->getMessage()]);
@@ -55,9 +62,14 @@ class KegiatanController extends CustomController
             $id = $this->postField('id');
             $bagian = Kegiatan::find($id);
             $data = [
-                'tanggal' => $this->postField('tanggal'),
+                'tanggal' => Carbon::now(),
                 'deskripsi' => $this->postField('deskripsi'),
             ];
+            $nama_gambar = $this->generateImageName('bukti');
+            if ($nama_gambar !== '') {
+                $data['bukti'] = $nama_gambar;
+                $this->uploadImage('bukti', $nama_gambar, 'bukti');
+            }
             $bagian->update($data);
             return redirect('/kegiatan')->with(['success' => 'Berhasil Merubah Data...']);
         }catch (\Exception $e) {

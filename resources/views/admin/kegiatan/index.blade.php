@@ -20,6 +20,25 @@
         </ol>
     </div>
     <div class="w-100 p-2">
+        <div class="row">
+            <div class="col-lg-6 col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <p class="font-weight-bold">Informasi Pembimbing Magang</p>
+                        <hr>
+                        <div class="row">
+                            <div class="col-lg-4">Nama Pembimbing :</div>
+                            <div class="col-lg-8">{{ auth()->user()->peserta->pembimbing->karyawan->nama }}</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-4">Nama Pembimbing :</div>
+                            <div class="col-lg-8">{{ auth()->user()->peserta->pembimbing->karyawan->nama }}</div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="text-right mb-2">
             <a href="/kegiatan/tambah" class="btn btn-primary"><i class="fa fa-plus mr-1"></i><span
                     class="font-weight-bold">Tambah</span></a>
@@ -27,6 +46,7 @@
             <a href="#" class="btn btn-success ml-2" id="btn-cetak"><i class="fa fa-print mr-1"></i><span
                     class="font-weight-bold">Cetak</span></a>
         </div>
+
         <table id="table-data" class="display w-100 table table-bordered">
             <thead>
             <tr>
@@ -34,6 +54,7 @@
                 <th width="15%">Tanggal</th>
                 <th>Deskripsi Kegiatan</th>
                 <th width="15%">Nilai</th>
+                <th width="20%">Bukti</th>
                 <th width="10%" class="text-center">Action</th>
             </tr>
             </thead>
@@ -44,6 +65,15 @@
                     <td>{{ $v->tanggal }}</td>
                     <td>{{ $v->deskripsi }}</td>
                     <td>{{ $v->nilai }}</td>
+                    <td>
+                        <a target="_blank"
+                           href="{{ asset('assets/bukti')."/".$v->bukti }}">
+                            <img
+                                src="{{ asset('assets/bukti')."/".$v->bukti }}"
+                                alt="Gambar Produk"
+                                style="width: 75px; height: 80px; object-fit: cover"/>
+                        </a>
+                    </td>
                     <td class="text-center">
                         @if(auth()->user()->role == 'peserta' )
                             @if($v->nilai == '-')

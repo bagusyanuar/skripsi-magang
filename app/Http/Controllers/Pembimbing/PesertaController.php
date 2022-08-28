@@ -20,8 +20,15 @@ class PesertaController extends CustomController
     public function index()
     {
         $id = Auth::id();
-        $data = Peserta::with(['divisi', 'user'])->where('pembimbing_id', '=', $id)->get();
-        return view('pembimbing.peserta-bimbingan.index')->with(['data' => $data]);
+        $aktif = Peserta::with(['divisi', 'user'])
+            ->where('status', '=', 'aktif')
+            ->where('pembimbing_id', '=', $id)
+            ->get();
+        $selesai = Peserta::with(['divisi', 'user'])
+            ->where('status', '=', 'selesai')
+            ->where('pembimbing_id', '=', $id)
+            ->get();
+        return view('pembimbing.peserta-bimbingan.index')->with(['aktif' => $aktif, 'selesai' => $selesai]);
     }
 
     public function detail($id)
