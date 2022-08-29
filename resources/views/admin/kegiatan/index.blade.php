@@ -30,19 +30,15 @@
                             <div class="col-lg-4">Nama Pembimbing :</div>
                             <div class="col-lg-8">{{ auth()->user()->peserta->pembimbing->karyawan->nama }}</div>
                         </div>
-                        <div class="row">
-                            <div class="col-lg-4">Nama Pembimbing :</div>
-                            <div class="col-lg-8">{{ auth()->user()->peserta->pembimbing->karyawan->nama }}</div>
-                        </div>
-
                     </div>
                 </div>
             </div>
         </div>
         <div class="text-right mb-2">
-            <a href="/kegiatan/tambah" class="btn btn-primary"><i class="fa fa-plus mr-1"></i><span
-                    class="font-weight-bold">Tambah</span></a>
-
+            @if(auth()->user()->peserta->status == 'aktif')
+                <a href="/kegiatan/tambah" class="btn btn-primary"><i class="fa fa-plus mr-1"></i><span
+                        class="font-weight-bold">Tambah</span></a>
+            @endif
             <a href="#" class="btn btn-success ml-2" id="btn-cetak"><i class="fa fa-print mr-1"></i><span
                     class="font-weight-bold">Cetak</span></a>
         </div>

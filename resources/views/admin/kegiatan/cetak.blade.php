@@ -24,9 +24,6 @@
     </style>
 </head>
 <body>
-<div class="text-center f-bold report-title">Pasar Tradisional</div>
-{{--<div class="text-center f-bold report-title" style="font-size: 16px">MA Al-MANSHUR POPONGAN KLATEN</div>--}}
-{{--<div class="text-center">Popongan, RT.03/RW.03, Tegalgondo</div>--}}
 <br/>
 @yield('content')
 <hr>
@@ -35,7 +32,7 @@
     <div class="col-xs-8"></div>
     <div class="col-xs-3">
         <div class="text-center">
-            <p class="text-center">Sukoharjo, {{ date('Y-m-d') }}</p>
+            <p class="text-center">Wonogiri, {{ date('Y-m-d') }}</p>
         </div>
     </div>
 </div>

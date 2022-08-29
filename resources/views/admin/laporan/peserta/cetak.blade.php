@@ -1,33 +1,32 @@
 @extends('admin.laporan.index')
 
 @section('content')
-    <div class="text-center f-bold report-title">Laporan Peserta Magang</div>
+    <div class="text-center f-bold report-title">Laporan Peserta
+        Magang {{ $status == 'aktif' ? 'Aktif' : 'Selesai' }}</div>
     <hr>
     <br>
     <table id="my-table" class="table display">
         <thead>
         <tr>
             <th width="5%" class="text-center">#</th>
-            <th>Username</th>
             <th>Nama</th>
             <th>Divisi</th>
             <th>Pembimbing</th>
-            <th>No. Hp</th>
-            <th>alamat</th>
             <th>Asal Sekolah</th>
+            <th>Mulai</th>
+            <th>Selesai</th>
         </tr>
         </thead>
         <tbody>
         @foreach($data as $v)
             <tr>
                 <td width="5%" class="text-center">{{ $loop->index + 1 }}</td>
-                <td>{{ $v->username }}</td>
-                <td>{{ $v->peserta->nama }}</td>
-                <td>{{ $v->peserta->divisi->nama }}</td>
-                <td>{{ $v->peserta->pembimbing == null ? 'Belum Ada Pembimbing' : $v->peserta->pembimbing->karyawan->nama }}</td>
-                <td>{{ $v->peserta->no_hp }}</td>
-                <td>{{ $v->peserta->alamat }}</td>
-                <td>{{ $v->peserta->sekolah }}</td>
+                <td>{{ $v->nama }}</td>
+                <td>{{ $v->divisi->nama }}</td>
+                <td>{{ $v->pembimbing->karyawan->nama }}</td>
+                <td>{{ $v->sekolah }}</td>
+                <td>{{ $v->masuk }}</td>
+                <td>{{ $v->keluar }}</td>
             </tr>
         @endforeach
         </tbody>
@@ -38,7 +37,7 @@
         <div class="col-xs-8"></div>
         <div class="col-xs-3">
             <div class="text-center">
-                <p class="text-center">Sukoharjo, {{ date('d-m-Y') }}</p>
+                <p class="text-center">Wonogiri, {{ date('d-m-Y') }}</p>
             </div>
         </div>
     </div>

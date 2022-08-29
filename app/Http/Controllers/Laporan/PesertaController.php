@@ -6,6 +6,7 @@ namespace App\Http\Controllers\Laporan;
 
 use App\Helper\CustomController;
 use App\Models\Kegiatan;
+use App\Models\Peserta;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
@@ -18,15 +19,31 @@ class PesertaController extends CustomController
 
     public function index()
     {
-        $data = User::with(['peserta.divisi', 'peserta.pembimbing.karyawan'])->where('role', '=', 'peserta')->get();
-        return view('admin.laporan.peserta.index')->with(['data' => $data]);
+        return view('admin.laporan.peserta.index');
+    }
+
+    public function data()
+    {
+        try {
+            $status = $this->field('status');
+            $data = Peserta::with(['user', 'pembimbing.karyawan', 'divisi'])
+                ->where('status', '=', $status)
+                ->get();
+            return $this->basicDataTables($data);
+        }catch (\Exception $e) {
+            return $this->basicDataTables([]);
+        }
     }
 
     public function cetak()
     {
-        $data = User::with(['peserta.divisi', 'peserta.pembimbing.karyawan'])->where('role', '=', 'peserta')->get();
+        $status = $this->field('status');
+        $data = Peserta::with(['user', 'pembimbing.karyawan', 'divisi'])
+            ->where('status', '=', $status)
+            ->get();
         return $this->convertToPdf('admin.laporan.peserta.cetak', [
             'data' => $data,
+            'status' => $status,
         ]);
     }
 }

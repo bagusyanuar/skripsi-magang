@@ -63,31 +63,6 @@
                                 <p>Karyawan</p>
                             </a>
                         </li>
-{{--                        <li class="nav-item has-treeview">--}}
-{{--                            <a href="#" class="nav-link">--}}
-{{--                                <i class="nav-icon fa fa-users"></i>--}}
-{{--                                <p>--}}
-{{--                                    Pengguna--}}
-{{--                                    <i class="right fa fa-angle-down"></i>--}}
-{{--                                </p>--}}
-{{--                            </a>--}}
-{{--                            <ul class="nav nav-treeview">--}}
-{{--                                <li class="nav-item">--}}
-{{--                                    <a href="/karyawan"--}}
-{{--                                       class="nav-link">--}}
-{{--                                        <i class="fa fa-circle-o nav-icon" aria-hidden="true"></i>--}}
-{{--                                        <p>Karyawan</p>--}}
-{{--                                    </a>--}}
-{{--                                </li>--}}
-{{--                                <li class="nav-item">--}}
-{{--                                    <a href="/peserta"--}}
-{{--                                       class="nav-link">--}}
-{{--                                        <i class="fa fa-circle-o nav-icon" aria-hidden="true"></i>--}}
-{{--                                        <p>Peserta</p>--}}
-{{--                                    </a>--}}
-{{--                                </li>--}}
-{{--                            </ul>--}}
-{{--                        </li>--}}
                         <li class="nav-item">
                             <a href="/divisi"
                                class="nav-link">
@@ -118,6 +93,13 @@
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="/laporan-pengajuan"
+                                       class="nav-link">
+                                        <i class="fa fa-circle-o nav-icon" aria-hidden="true"></i>
+                                        <p>Pengajuan</p>
+                                    </a>
+                                </li>
                                 <li class="nav-item">
                                     <a href="/laporan-peserta"
                                        class="nav-link">

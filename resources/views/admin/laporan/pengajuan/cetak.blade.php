@@ -1,7 +1,7 @@
 @extends('admin.laporan.index')
 
 @section('content')
-    <div class="text-center f-bold report-title">Laporan Kegiatan Peserta Magang</div>
+    <div class="text-center f-bold report-title">Laporan Pengajuan Peserta Magang</div>
     <div class="text-center">Periode Laporan {{ $tgl1 }} - {{ $tgl2 }} </div>
     <hr>
     <br>
@@ -10,9 +10,13 @@
         <tr>
             <th width="5%" class="text-center">#</th>
             <th width="15%">Tanggal</th>
-            <th>Nama</th>
+            <th>No. Pengajuan</th>
+            <th>Nama Peserta</th>
+            <th>Sekolah</th>
             <th>Divisi</th>
-            <th>Deskripsi</th>
+            <th>Mulai</th>
+            <th>Selesai</th>
+            <th>Status</th>
         </tr>
         </thead>
         <tbody>
@@ -20,9 +24,13 @@
             <tr>
                 <td width="5%" class="text-center">{{ $loop->index + 1 }}</td>
                 <td>{{ $v->tanggal }}</td>
+                <td>{{ $v->no_pengajuan }}</td>
                 <td>{{ $v->user->peserta->nama }}</td>
-                <td>{{ $v->user->peserta->divisi->nama }}</td>
-                <td>{{ $v->deskripsi }}</td>
+                <td>{{ $v->user->peserta->sekolah }}</td>
+                <td>{{ $v->bagian->nama }}</td>
+                <td>{{ $v->tanggal_mulai }}</td>
+                <td>{{ $v->tanggal_selesai }}</td>
+                <td>{{ $v->status }}</td>
             </tr>
         @endforeach
         </tbody>

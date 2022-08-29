@@ -20,36 +20,33 @@
         </ol>
     </div>
     <div class="w-100 p-2">
-        <div class="text-right mb-2 pr-3">
-            <a href="/laporan-peserta/cetak" target="_blank" class="btn btn-success"><i class="fa fa-print mr-1"></i><span
-                    class="font-weight-bold">Cetak</span></a>
+        <div class="d-flex justify-content-between align-items-end mb-2">
+            <div class="form-group w-25 mb-1">
+                <label for="status">Status</label>
+                <select class="form-control" id="status" name="status">
+                    <option value="aktif">Aktif</option>
+                    <option value="selesai">Selesai</option>
+                </select>
+            </div>
+            <div class="text-right mb-2 pr-3">
+                <a href="#" target="_blank" class="btn btn-success btn-cetak"><i class="fa fa-print mr-1"></i><span
+                        class="font-weight-bold">Cetak</span></a>
+            </div>
         </div>
+
         <table id="table-data" class="display w-100 table table-bordered">
             <thead>
             <tr>
                 <th width="5%" class="text-center">#</th>
-                <th>Username</th>
                 <th>Nama</th>
                 <th>Divisi</th>
                 <th>Pembimbing</th>
-                <th>No. Hp</th>
-                <th>alamat</th>
                 <th>Asal Sekolah</th>
+                <th>Mulai</th>
+                <th>Selesai</th>
             </tr>
             </thead>
             <tbody>
-            @foreach($data as $v)
-                <tr>
-                    <td width="5%" class="text-center">{{ $loop->index + 1 }}</td>
-                    <td>{{ $v->username }}</td>
-                    <td>{{ $v->peserta->nama }}</td>
-                    <td>{{ $v->peserta->divisi->nama }}</td>
-                    <td>{{ $v->peserta->pembimbing == null ? 'Belum Ada Pembimbing' : $v->peserta->pembimbing->karyawan->nama }}</td>
-                    <td>{{ $v->peserta->no_hp }}</td>
-                    <td>{{ $v->peserta->alamat }}</td>
-                    <td>{{ $v->peserta->sekolah }}</td>
-                </tr>
-            @endforeach
             </tbody>
         </table>
     </div>
@@ -59,21 +56,36 @@
 @section('js')
     <script src="{{ asset('/js/helper.js') }}"></script>
     <script type="text/javascript">
-        function destroy(id) {
-            AjaxPost('/peserta/delete', {id}, function () {
-                window.location.reload();
-            });
+        var table;
+
+        function reload() {
+            table.ajax.reload();
         }
 
         $(document).ready(function () {
-            $('#table-data').DataTable();
-            $('.btn-delete').on('click', function (e) {
-                e.preventDefault();
-                let id = this.dataset.id;
-                AlertConfirm('Apakah Anda Yakin?', 'Data yang dihapus tidak dapat dikembalikan!', function () {
-                    destroy(id);
-                })
+            table = DataTableGenerator('#table-data', '/laporan-peserta/data', [
+                {data: 'DT_RowIndex', name: 'DT_RowIndex', searchable: false, orderable: false},
+                {data: 'nama'},
+                {data: 'divisi.nama'},
+                {data: 'pembimbing.karyawan.nama'},
+                {data: 'sekolah'},
+                {data: 'masuk'},
+                {data: 'keluar'},
+            ], [], function (d) {
+                d.status = $('#status').val();
+            }, {
+                dom: 'ltipr',
             });
+
+            $('#status').on('change', function (e) {
+                reload();
+            });
+
+            $('.btn-cetak').on('click', function (e) {
+                e.preventDefault();
+                let status = $('#status').val();
+                window.open('/laporan-peserta/cetak?status=' + status, '_blank');
+            })
         });
     </script>
 @endsection

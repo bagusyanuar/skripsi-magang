@@ -44,8 +44,16 @@ class PesertaController extends CustomController
         $kegiatan = Kegiatan::with('user')
             ->where('user_id', '=', $id)
             ->get();
+        if ($this->request->method() === 'POST') {
+            $peserta = $data->peserta;
+            $peserta->update([
+                'status' => 'selesai'
+            ]);
+            return redirect('/peserta')->with(['success' => 'Berhasil Merubah data...']);
+        }
         return view('admin.pengguna.peserta.detail')->with(['data' => $data, 'kegiatan' => $kegiatan]);
     }
+
     public function add_page()
     {
         $bagian = Bagian::all();

@@ -140,6 +140,15 @@
             @endforeach
             </tbody>
         </table>
+        @if($data->peserta->status == 'aktif')
+            <form method="post">
+                @csrf
+                <div class="text-right mt-2">
+                    <button type="submit" class="btn btn-success"><i class="fa fa-check mr-1"></i><span
+                            class="font-weight-bold">Selesai</span></button>
+                </div>
+            </form>
+        @endif
     </div>
 @endsection
 

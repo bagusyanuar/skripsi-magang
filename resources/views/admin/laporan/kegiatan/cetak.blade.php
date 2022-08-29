@@ -55,7 +55,7 @@
         <div class="col-xs-8"></div>
         <div class="col-xs-3">
             <div class="text-center">
-                <p class="text-center">Sukoharjo, {{ date('d-m-Y') }}</p>
+                <p class="text-center">Wonogiri, {{ date('d-m-Y') }}</p>
             </div>
         </div>
     </div>
